@@ -1,1160 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Niño Mabilangan | Senior Systems and Project Engineer</title>
-  <meta name="description" content="Niño Wennie Mabilangan is a Senior Systems and Project Engineer specializing in infrastructure architecture, cloud migrations, network security, virtualization, automation, and MSP operations." />
-  <meta name="theme-color" content="#040b18" />
-  <meta property="og:title" content="Niño Mabilangan | Senior Systems and Project Engineer" />
-  <meta property="og:description" content="Premium portfolio for Niño Mabilangan, senior infrastructure, cloud, security, and escalation engineer." />
-  <meta property="og:type" content="website" />
-  <style>
-    :root {
-      --bg: #040b18;
-      --bg-soft: #091226;
-      --panel: rgba(7, 17, 36, 0.72);
-      --panel-strong: rgba(10, 20, 42, 0.88);
-      --line: rgba(99, 196, 255, 0.16);
-      --line-strong: rgba(99, 196, 255, 0.28);
-      --cyan: #5ad7ff;
-      --blue: #2ca8ff;
-      --ice: #eaf6ff;
-      --muted: #8ca9c7;
-      --muted-2: #aac3db;
-      --ok: #70ffd3;
-      --shadow: 0 30px 80px rgba(0,0,0,0.45);
-      --radius: 24px;
-      --max: 1240px;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Niño Mabilangan Senior Systems Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:#020c1b;color:#cdd6f4;font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6}
+#qc{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+nav,section,.hero,footer{position:relative;z-index:1}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0a1a35 0%, var(--bg) 45%, #030813 100%);
-      color: var(--ice);
-      overflow-x: hidden;
-    }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;background:rgba(2,12,27,0.8);backdrop-filter:blur(16px);border-bottom:1px solid rgba(14,165,233,0.1)}
+.nav-logo{font-family:'DM Mono',monospace;font-size:13px;color:#0ea5e9;letter-spacing:.1em;white-space:nowrap}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;color:#64748b;text-decoration:none;letter-spacing:.03em;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:#cdd6f4}
+.nav-cta{font-family:'DM Mono',monospace;font-size:12px;color:#0ea5e9;border:1px solid rgba(14,165,233,0.3);padding:6px 16px;border-radius:4px;text-decoration:none;transition:background .2s,border-color .2s;white-space:nowrap}
+.nav-cta:hover{background:rgba(14,165,233,0.08);border-color:#0ea5e9}
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 5% 5rem;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr;gap:4rem;align-items:center;width:100%;max-width:1200px;margin:0 auto}
+.hero-left{min-width:0}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:12px;color:#0ea5e9;letter-spacing:.15em;margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s .2s forwards}
 
-    .bg {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      z-index: -3;
-      background:
-        radial-gradient(circle at 18% 16%, rgba(31, 122, 255, 0.16), transparent 25%),
-        radial-gradient(circle at 78% 26%, rgba(90, 215, 255, 0.14), transparent 22%),
-        radial-gradient(circle at 55% 74%, rgba(48, 105, 255, 0.12), transparent 28%),
-        linear-gradient(180deg, #040c1a 0%, #030814 100%);
-    }
-    #quantumField {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      opacity: 1;
-    }
-    .bg::before,
-    .bg::after {
-      content: "";
-      position: absolute;
-      inset: -10%;
-      pointer-events: none;
-    }
-    .bg::before {
-      background:
-        repeating-linear-gradient(
-          90deg,
-          transparent 0 150px,
-          rgba(90, 215, 255, 0.03) 150px 151px
-        ),
-        repeating-linear-gradient(
-          180deg,
-          transparent 0 120px,
-          rgba(90, 215, 255, 0.02) 120px 121px
-        );
-      mask-image: linear-gradient(180deg, rgba(255,255,255,0.8), transparent 88%);
-    }
-    .bg::after {
-      background:
-        radial-gradient(circle at center, rgba(90,215,255,0.07), transparent 42%),
-        radial-gradient(circle at center, rgba(44,168,255,0.04), transparent 62%);
-      filter: blur(24px);
-      animation: pulseGlow 9s ease-in-out infinite;
-    }
+.hero-title{font-size:clamp(1rem,2.5vw,1.5rem);font-weight:600;color:#38bdf8;margin-bottom:1.5rem;opacity:0;animation:fadeUp .6s .5s forwards;word-break:break-word}
+.hero-desc{font-size:clamp(.9rem,1.5vw,1.05rem);color:#7094b8;max-width:560px;line-height:1.8;margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s .65s forwards}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s .8s forwards}
+.btn-p{display:inline-flex;align-items:center;gap:8px;padding:.8rem 1.8rem;background:#0ea5e9;color:#020c1b;font-size:14px;font-weight:700;border:none;border-radius:6px;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(14,165,233,.4)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;padding:.8rem 1.8rem;background:transparent;color:#cdd6f4;font-size:14px;font-weight:500;border:1px solid rgba(14,165,233,.2);border-radius:6px;text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s;white-space:nowrap}
+.btn-o:hover{border-color:rgba(14,165,233,.4);background:rgba(14,165,233,.06)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s 1s forwards}
+.sn{font-size:2rem;font-weight:900;background:linear-gradient(135deg,#0ea5e9,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.sl{font-size:11px;color:#4a6585;letter-spacing:.05em;margin-top:3px}
 
-    @keyframes pulseGlow {
-      0%,100% { transform: scale(1); opacity: 0.65; }
-      50% { transform: scale(1.08); opacity: 1; }
-    }
+/* SECTIONS */
+section{padding:6rem 5%}
+.sec-inner{max-width:1200px;margin:0 auto}
+.sec-label{font-family:'DM Mono',monospace;font-size:11px;color:#0ea5e9;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem}
+.sec-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#e2eeff;letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.2;word-break:break-word}
+.sec-sub{color:#4a6585;line-height:1.8;font-size:clamp(.9rem,1.3vw,1rem);max-width:520px;margin-bottom:3.5rem}
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: rgba(4, 11, 24, 0.62);
-      border-bottom: 1px solid rgba(99, 196, 255, 0.08);
-    }
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .brand-mark {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      color: var(--ice);
-      background:
-        linear-gradient(135deg, rgba(44,168,255,0.22), rgba(90,215,255,0.06)),
-        rgba(255,255,255,0.02);
-      border: 1px solid rgba(99, 196, 255, 0.24);
-      box-shadow: inset 0 0 18px rgba(90,215,255,0.12), 0 0 30px rgba(44,168,255,0.1);
-    }
-    .brand-text strong,
-    .brand-text span {
-      display: block;
-      line-height: 1.15;
-    }
-    .brand-text strong { font-size: 0.98rem; }
-    .brand-text span { color: var(--muted); font-size: 0.78rem; }
+/* ABOUT */
+#about{background:rgba(5,18,38,.88);backdrop-filter:blur(6px)}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start}
+.about-p{color:#7094b8;line-height:1.9;font-size:clamp(.9rem,1.3vw,1rem);margin-bottom:1.1rem}
+.about-p strong{color:#cdd6f4;font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem}
+.bdg{font-family:'DM Mono',monospace;font-size:11px;padding:5px 13px;border-radius:3px;background:rgba(14,165,233,.07);color:#38bdf8;border:1px solid rgba(14,165,233,.18);letter-spacing:.04em}
+.acards{display:flex;flex-direction:column;gap:.9rem}
+.acard{background:rgba(14,165,233,.04);border:1px solid rgba(14,165,233,.1);border-radius:10px;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:.9rem;transition:border-color .2s,background .2s}
+.acard:hover{border-color:rgba(14,165,233,.28);background:rgba(14,165,233,.07)}
+.acard-ic{width:40px;height:40px;border-radius:8px;background:rgba(14,165,233,.1);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.acard-t{font-size:13px;font-weight:600;margin-bottom:2px;color:#e2eeff}
+.acard-s{font-size:11px;color:#4a6585}
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: var(--muted-2);
-      font-size: 0.92rem;
-    }
-    .nav-links a:hover { color: var(--ice); }
-    .cta-small {
-      padding: 11px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(44,168,255,0.22), rgba(90,215,255,0.10));
-      border: 1px solid rgba(99, 196, 255, 0.24);
-    }
+/* SKILLS */
+#skills{background:rgba(2,12,27,.92);backdrop-filter:blur(6px)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.sg{background:rgba(14,165,233,.03);border:1px solid rgba(14,165,233,.1);border-radius:12px;padding:1.4rem;transition:border-color .2s,transform .2s,box-shadow .2s}
+.sg:hover{border-color:rgba(14,165,233,.28);transform:translateY(-3px);box-shadow:0 10px 32px rgba(14,165,233,.07)}
+.sg-ic{font-size:20px;margin-bottom:.6rem}
+.sg-t{font-size:13px;font-weight:700;margin-bottom:.9rem;color:#cdd6f4}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-family:'DM Mono',monospace;padding:3px 9px;background:rgba(14,165,233,.06);border:1px solid rgba(14,165,233,.1);border-radius:3px;color:#5a7a99}
 
-    .hero {
-      position: relative;
-      padding: 82px 0 44px;
-    }
-    .hero-panel {
-      position: relative;
-      padding: 42px;
-      border-radius: 32px;
-      background:
-        linear-gradient(180deg, rgba(9, 18, 38, 0.74), rgba(5, 12, 26, 0.65));
-      border: 1px solid rgba(99, 196, 255, 0.12);
-      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.05);
-      overflow: hidden;
-    }
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 22%, rgba(90,215,255,0.12), transparent 24%),
-        radial-gradient(circle at 78% 10%, rgba(44,168,255,0.08), transparent 18%);
-      pointer-events: none;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 22px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: var(--cyan);
-      font-size: 0.86rem;
-      background: rgba(90, 215, 255, 0.06);
-      border: 1px solid rgba(90, 215, 255, 0.16);
-    }
-    .eyebrow::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--ok);
-      box-shadow: 0 0 18px rgba(112,255,211,0.75);
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-      gap: 34px;
-      align-items: stretch;
-    }
-    .hero-copy h1 {
-      margin: 0;
-      font-size: clamp(3.1rem, 7vw, 7rem);
-      line-height: 0.95;
-      letter-spacing: -0.055em;
-      font-weight: 900;
-      text-wrap: balance;
-      max-width: 920px;
-    }
-    .hero-copy h1 .accent {
-      display: block;
-      background: linear-gradient(90deg, #65deff, #2298ff 40%, #89eeff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 0 24px rgba(44,168,255,0.28));
-    }
-    .hero-copy p {
-      max-width: 760px;
-      color: var(--muted-2);
-      font-size: clamp(1rem, 1.35vw, 1.18rem);
-      line-height: 1.9;
-      margin: 28px 0 0;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 30px;
-    }
-    .btn,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 16px;
-      font-weight: 700;
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
-    }
-    .btn {
-      background: linear-gradient(135deg, #39c2ff, #1c92ff);
-      color: #04101f;
-      box-shadow: 0 10px 30px rgba(44,168,255,0.28);
-    }
-    .btn-secondary {
-      border: 1px solid rgba(99, 196, 255, 0.18);
-      background: rgba(255,255,255,0.03);
-      color: var(--ice);
-    }
-    .btn:hover,
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-    }
+/* EXPERIENCE */
+#experience{background:rgba(5,18,38,.88);backdrop-filter:blur(6px)}
+.tl{position:relative;padding-left:1.8rem}
+.tl::before{content:'';position:absolute;left:0;top:10px;bottom:0;width:1px;background:linear-gradient(to bottom,#0ea5e9,transparent)}
+.tl-item{position:relative;margin-bottom:3rem}
+.tl-dot{position:absolute;left:-1.8rem;top:8px;width:9px;height:9px;border-radius:50%;background:#0ea5e9;box-shadow:0 0 14px rgba(14,165,233,.6);transform:translateX(-4px)}
+.tl-co{font-family:'DM Mono',monospace;font-size:10px;color:#0ea5e9;letter-spacing:.12em;margin-bottom:3px;word-break:break-word}
+.tl-role{font-size:clamp(.95rem,1.8vw,1.15rem);font-weight:700;color:#e2eeff;margin-bottom:3px;line-height:1.3;word-break:break-word}
+.tl-period{font-size:11px;color:#4a6585;margin-bottom:.9rem}
+.tl-items{list-style:none}
+.tl-items li{font-size:clamp(.85rem,1.3vw,.95rem);color:#7094b8;line-height:1.8;margin-bottom:.5rem;padding-left:1.1rem;position:relative}
+.tl-items li::before{content:'›';position:absolute;left:0;color:#0ea5e9;font-size:14px;line-height:1.6}
 
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 34px;
-      align-items: stretch;
-    }
-    .metric {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 20px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(99, 196, 255, 0.11);
-      min-height: 260px;
-      overflow: hidden;
-    }
-    .metric strong {
-      display: block;
-      font-size: clamp(1.15rem, 1.95vw, 1.95rem);
-      line-height: 1.08;
-      margin-bottom: 12px;
-      color: var(--cyan);
-      text-shadow: 0 0 18px rgba(90,215,255,0.22);
-      overflow-wrap: anywhere;
-    }
-    .metric span {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-      overflow-wrap: anywhere;
-    }
+/* PROJECTS */
+#projects{background:rgba(2,12,27,.92);backdrop-filter:blur(6px)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.proj-card{background:rgba(14,165,233,.03);border:1px solid rgba(14,165,233,.1);border-radius:12px;padding:1.5rem;transition:border-color .2s,transform .2s}
+.proj-card:hover{border-color:rgba(14,165,233,.3);transform:translateY(-3px)}
+.proj-ic{font-size:26px;margin-bottom:.9rem}
+.proj-title{font-size:14px;font-weight:700;color:#e2eeff;margin-bottom:.6rem}
+.proj-desc{font-size:13px;color:#7094b8;line-height:1.75}
 
-    .hero-side {
-      display: grid;
-      gap: 16px;
-      position: relative;
-    }
-    .hero-card,
-    .signal-card {
-      position: relative;
-      padding: 22px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(9,20,42,0.82), rgba(7,14,28,0.78));
-      border: 1px solid rgba(99, 196, 255, 0.13);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-      overflow: hidden;
-    }
-    .hero-card::after,
-    .signal-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -20% -40% auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(44,168,255,0.12), transparent 66%);
-      filter: blur(18px);
-      pointer-events: none;
-    }
-    .hero-card h3,
-    .signal-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-    }
-    .hero-card p,
-    .signal-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.96rem;
-    }
-    .hero-list {
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-    .hero-list li {
-      display: grid;
-      grid-template-columns: 12px 1fr;
-      gap: 12px;
-      color: var(--muted-2);
-      line-height: 1.6;
-    }
-    .hero-list li::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      margin-top: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #6ae0ff, #2097ff);
-      box-shadow: 0 0 16px rgba(90,215,255,0.45);
-    }
+/* CONTACT */
+#contact{background:rgba(5,18,38,.88);backdrop-filter:blur(6px)}
+.cbox{max-width:680px;background:rgba(14,165,233,.04);border:1px solid rgba(14,165,233,.12);border-radius:14px;padding:2.5rem;position:relative;overflow:hidden}
+.cbox::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#0ea5e9,#7dd3fc,transparent)}
+.avail{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.22);border-radius:20px;font-size:12px;color:#38bdf8;margin-bottom:1.8rem}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:#38bdf8;animation:pulse 1.5s infinite}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.ci{display:flex;align-items:center;gap:.9rem;padding:1rem 1.1rem;background:rgba(14,165,233,.04);border:1px solid rgba(14,165,233,.1);border-radius:8px;text-decoration:none;color:#cdd6f4;transition:border-color .2s,background .2s;word-break:break-all}
+.ci:hover{border-color:rgba(14,165,233,.35);background:rgba(14,165,233,.07)}
+.ci-ic{width:34px;height:34px;border-radius:6px;background:rgba(14,165,233,.1);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ci-l{font-size:10px;color:#4a6585;margin-bottom:1px}
+.ci-v{font-size:12px;font-weight:500;word-break:break-all}
 
-    section.block {
-      padding: 42px 0 0;
-    }
-    .section-panel {
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(7, 17, 36, 0.72), rgba(6, 13, 27, 0.72));
-      border: 1px solid rgba(99, 196, 255, 0.11);
-      box-shadow: var(--shadow);
-      padding: 34px;
-    }
-    .section-kicker {
-      color: var(--cyan);
-      font-weight: 700;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 14px;
-    }
-    .section-title {
-      margin: 0;
-      font-size: clamp(1.9rem, 3.7vw, 3.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-    }
-    .section-sub {
-      margin: 14px 0 0;
-      color: var(--muted);
-      line-height: 1.85;
-      max-width: 820px;
-      font-size: 1rem;
-    }
+footer{padding:1.8rem 5%;border-top:1px solid rgba(14,165,233,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;background:rgba(2,12,27,.97)}
+footer p{font-size:11px;color:#2a3f58}
 
-    .about-grid,
-    .project-grid,
-    .contact-grid,
-    .expertise-grid {
-      display: grid;
-      gap: 18px;
-      margin-top: 28px;
-    }
-    .about-grid { grid-template-columns: 1.1fr 0.9fr; }
-    .expertise-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-    .card {
-      border-radius: 22px;
-      padding: 22px;
-      background: rgba(255,255,255,0.024);
-      border: 1px solid rgba(99, 196, 255, 0.10);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-      min-height: 100%;
-    }
-    .card h3 { margin: 0 0 12px; font-size: 1.1rem; }
-    .card p { margin: 0; color: var(--muted); line-height: 1.8; }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .badge {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(90, 215, 255, 0.06);
-      border: 1px solid rgba(90, 215, 255, 0.16);
-      color: var(--cyan);
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .stack span {
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(99, 196, 255, 0.08);
-      color: var(--muted-2);
-      font-size: 0.92rem;
-    }
-
-    .timeline {
-      margin-top: 28px;
-      display: grid;
-      gap: 18px;
-    }
-    .job {
-      position: relative;
-      padding: 24px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.024);
-      border: 1px solid rgba(99, 196, 255, 0.10);
-      overflow: hidden;
-    }
-    .job::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, #64e3ff, rgba(100,227,255,0));
-    }
-    .job-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-    .job h3 { margin: 0; font-size: 1.16rem; }
-    .job .company { color: var(--cyan); font-weight: 700; margin-top: 6px; }
-    .job .period {
-      color: var(--muted-2);
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(90, 215, 255, 0.06);
-      border: 1px solid rgba(90, 215, 255, 0.12);
-      white-space: nowrap;
-      font-size: 0.9rem;
-    }
-    .job ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
-    .job li {
-      display: grid;
-      grid-template-columns: 12px 1fr;
-      gap: 12px;
-      color: var(--muted-2);
-      line-height: 1.75;
-    }
-    .job li::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      margin-top: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #69e2ff, #269fff);
-      box-shadow: 0 0 18px rgba(90,215,255,0.42);
-    }
-
-    .contact-card {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      min-height: 100%;
-    }
-    .contact-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(44,168,255,0.22), rgba(90,215,255,0.06));
-      border: 1px solid rgba(99,196,255,0.18);
-      font-size: 1.15rem;
-      flex: 0 0 auto;
-    }
-    .contact-label {
-      margin: 0 0 6px;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-    .contact-value {
-      margin: 0;
-      color: var(--ice);
-      font-size: 1rem;
-      line-height: 1.7;
-      word-break: break-word;
-    }
-
-    footer {
-      padding: 34px 0 60px;
-      color: var(--muted);
-    }
-    .foot {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      border-top: 1px solid rgba(99, 196, 255, 0.08);
-      padding-top: 24px;
-      flex-wrap: wrap;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: transform 700ms ease, opacity 700ms ease;
-    }
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1280px) {
-      .metrics {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .about-grid,
-      .project-grid,
-      .expertise-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .metrics {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav-links { display: none; }
-      .hero { padding-top: 34px; }
-      .hero-panel,
-      .section-panel { padding: 22px; border-radius: 24px; }
-      .metrics { grid-template-columns: 1fr; }
-      .job-top { align-items: stretch; }
-      .wrap { width: min(calc(100% - 24px), var(--max)); }
-      .topbar .nav { min-height: 70px; }
-      .brand-text span { max-width: 160px; }
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  
+  
+  .about-grid{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  nav{padding:.9rem 4%}
+  .nav-links{display:none}
+  .hero{padding:5.5rem 4% 4rem}
+  section{padding:4.5rem 4%}
+  .hero-stats{gap:1.5rem}
+  .sn{font-size:1.6rem}
+  footer{flex-direction:column;text-align:center;padding:1.5rem 4%}
+}
+@media(max-width:400px){
+  .hero-actions{flex-direction:column}
+  .btn-p,.btn-o{justify-content:center}
+}
+</style>
 </head>
 <body>
-  <div class="bg" aria-hidden="true">
-    <canvas id="quantumField"></canvas>
+<canvas id="qc"></canvas>
+
+<nav>
+  <div class="nav-logo">Niño Mabilangan</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:nino.mabilangan@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">// Senior Systems &amp; Cloud Engineer</div>
+      
+      <div class="hero-title">Infrastructure that just works.</div>
+      <p class="hero-desc">10 years inside high-growth MSPs, supporting global businesses with systems that need to stay up. I'm the person teams call when nobody else can solve it: L3 escalation, cloud migrations, and everything in between.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-p">Get in touch</a>
+        <a href="#experience" class="btn-o">View experience</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="sn">10+</div><div class="sl">Years in MSP</div></div>
+        <div><div class="sn">L3</div><div class="sl">Escalation Level</div></div>
+        <div><div class="sn">5</div><div class="sl">Companies Served</div></div>
+        <div><div class="sn">&#8734;</div><div class="sl">Timezones Covered</div></div>
+      </div>
+    </div>
+    </div>
+    </div>
   </div>
+</div>
 
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#home" aria-label="Go to top">
-        <div class="brand-mark">NM</div>
-        <div class="brand-text">
-          <strong>Niño Mabilangan</strong>
-          <span>Senior Systems and Project Engineer</span>
+<section id="about">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="sec-label">// about me</div>
+        <h2 class="sec-title">I fix the problems others escalate to me.</h2>
+        <p class="about-p">I'm a <strong>Senior Systems Engineer</strong> based in Batangas, Philippines, with over a decade inside high-growth MSP environments. I specialize in owning the hard problems from complex Microsoft 365 and Azure migrations to multi-site firewall deployments and P1 outages that land on my desk at 2 AM.</p>
+        <p class="about-p">My approach is straightforward: document everything, automate what you can with <strong>PowerShell</strong>, and build systems and SOPs that outlast your involvement. I've served as the <strong>final tier of escalation</strong> at companies like Accenture, SolarWinds, and Logic Speak the person called when everyone else is stuck.</p>
+        <p class="about-p">Beyond core infrastructure, I work with <strong>AI-assisted workflows and automation tools</strong>, helping teams modernize how they operate day to day.</p>
+        <div class="badges">
+          <span class="bdg">Remote Ready</span>
+          <span class="bdg">Flexible Timezone</span>
+          <span class="bdg">Full-time Available</span>
+          <span class="bdg">ID Verified</span>
+          <span class="bdg">AI Workflows</span>
         </div>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact" class="cta-small">Hire Niño</a>
-      </nav>
+      </div>
+      <div class="acards reveal">
+        <div class="acard"><div class="acard-ic">&#9729;&#65039;</div><div><div class="acard-t">Cloud &amp; Identity</div><div class="acard-s">Azure AD, M365, Intune, Autopilot, Exchange</div></div></div>
+        <div class="acard"><div class="acard-ic">&#128274;</div><div><div class="acard-t">Network Security</div><div class="acard-s">SonicWall, Fortinet, Cisco, VPN, VLAN, SD-WAN</div></div></div>
+        <div class="acard"><div class="acard-ic">&#128187;</div><div><div class="acard-t">Virtualization</div><div class="acard-s">VMware vSphere, Hyper-V, Azure VMs</div></div></div>
+        <div class="acard"><div class="acard-ic">&#9889;</div><div><div class="acard-t">Automation &amp; BCDR</div><div class="acard-s">PowerShell, Datto BCDR, Acronis, RMM/PSA</div></div></div>
+      </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main id="home">
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-panel reveal">
-          <div class="eyebrow">Open for remote roles, project delivery, and high trust infrastructure work</div>
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <h1>
-                Infrastructure intelligence
-                <span class="accent">built for uptime, security, and trust.</span>
-              </h1>
-              <p>
-                I am <strong>Niño Wennie Mabilangan</strong>, a Senior Systems and Project Engineer with 10 plus years of experience across MSP operations, cloud migrations, escalation ownership, virtualization, and advanced infrastructure support. I step into complex environments, stabilize critical systems, and deliver clear, practical technical leadership that businesses can depend on.
-              </p>
-              <div class="hero-actions">
-                <a class="btn" href="#contact">Start a conversation</a>
-                <a class="btn-secondary" href="#experience">Review experience</a>
-              </div>
-              <div class="metrics" aria-label="Key highlights">
-                <div class="metric"><strong>10 plus years</strong><span>Senior technical delivery across MSP, enterprise support, cloud, and infrastructure operations</span></div>
-                <div class="metric"><strong>L3 ownership</strong><span>Trusted final escalation support for critical incidents, outages, and high priority client issues</span></div>
-                <div class="metric"><strong>Cloud to core</strong><span>Hands on delivery across Microsoft 365, Entra ID, networking, servers, virtualization, and security</span></div>
-                <div class="metric"><strong>Flexible time zones</strong><span>Available across flexible time zones for U.S., APAC, project based, and business critical support windows</span></div>
-              </div>
-            </div>
-
-            <aside class="hero-side">
-              <div class="hero-card">
-                <h3>Why companies hire me</h3>
-                <p>I bring senior level calm, structure, and deep technical execution to environments where speed, uptime, security, and communication all matter at once.</p>
-                <ul class="hero-list">
-                  <li>Complex Microsoft 365 and Entra ID migrations with secure policy implementation</li>
-                  <li>Server, virtualization, backup, and recovery design for resilient business operations</li>
-                  <li>Hands on troubleshooting across Active Directory, DNS, DHCP, WAN, LAN, VPN, and endpoint security</li>
-                  <li>Automation and documentation that raise service quality and reduce repeat failures</li>
-                </ul>
-              </div>
-              <div class="signal-card">
-                <h3>Availability</h3>
-                <p>Flexible across time zones and open to remote roles, long term MSP support, project engineering engagements, and urgent escalation coverage when the business needs strong technical ownership.</p>
-              </div>
-            </aside>
-          </div>
-        </div>
+<section id="skills">
+  <div class="sec-inner">
+    <div class="sec-label reveal">// tech stack</div>
+    <h2 class="sec-title reveal">Tools I know inside out.</h2>
+    <p class="sec-sub reveal">Built across 10 years and five enterprise environments not certifications on a wall, but tools I use every week.</p>
+    <div class="skills-grid">
+      <div class="sg reveal">
+        <div class="sg-ic">&#9729;&#65039;</div>
+        <div class="sg-t">Cloud &amp; Identity</div>
+        <div class="tags"><span class="tag">Microsoft 365</span><span class="tag">Azure AD</span><span class="tag">Entra ID</span><span class="tag">Exchange Online</span><span class="tag">SharePoint</span><span class="tag">Teams</span><span class="tag">Intune</span><span class="tag">Autopilot</span><span class="tag">Conditional Access</span></div>
       </div>
-    </section>
-
-    <section class="block" id="about">
-      <div class="wrap">
-        <div class="section-panel reveal">
-          <div class="section-kicker">About</div>
-          <h2 class="section-title">I solve the technical problems that companies cannot afford to leave unresolved.</h2>
-          <p class="section-sub">Your resume positions you as a strategic and highly technical senior engineer with expertise in infrastructure architecture, cloud migrations, network security, virtualization, disaster recovery, automation, and MSP operations. This portfolio reflects that positioning directly. fileciteturn1file1</p>
-          <div class="about-grid">
-            <div class="card">
-              <h3>Professional focus</h3>
-              <p>I specialize in end to end infrastructure delivery, Microsoft 365 and Azure tenant transitions, virtualization, network security, advanced escalation handling, and service quality improvement. I combine hands on engineering with operational discipline so teams get both technical depth and execution they can trust. Your resume specifically highlights over 10 years in high growth MSP environments, complex cloud migrations, Hyper V and VMware support, advanced security deployments, and PowerShell automation. fileciteturn1file1</p>
-              <div class="badge-row">
-                <span class="badge">Remote ready</span>
-                <span class="badge">Flexible time zones</span>
-                <span class="badge">Full time or project based</span>
-                <span class="badge">Escalation ownership</span>
-                <span class="badge">Automation driven</span>
-              </div>
-            </div>
-            <div class="card">
-              <h3>Core strengths</h3>
-              <div class="stack">
-                <span>Microsoft 365</span>
-                <span>Entra ID</span>
-                <span>Exchange</span>
-                <span>Intune</span>
-                <span>Conditional Access</span>
-                <span>SonicWall</span>
-                <span>Fortinet</span>
-                <span>Cisco</span>
-                <span>VMware</span>
-                <span>Hyper V</span>
-                <span>Azure VMs</span>
-                <span>PowerShell</span>
-                <span>Datto BCDR</span>
-                <span>Acronis</span>
-                <span>Autotask</span>
-                <span>ConnectWise</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="sg reveal">
+        <div class="sg-ic">&#128274;</div>
+        <div class="sg-t">Networking &amp; Security</div>
+        <div class="tags"><span class="tag">SonicWall</span><span class="tag">Fortinet</span><span class="tag">Cisco</span><span class="tag">VLANs</span><span class="tag">Site-to-Site VPN</span><span class="tag">SD-WAN</span><span class="tag">CrowdStrike</span><span class="tag">Cylance</span><span class="tag">MFA</span></div>
       </div>
-    </section>
-
-    <section class="block" id="expertise">
-      <div class="wrap">
-        <div class="section-panel reveal">
-          <div class="section-kicker">Expertise</div>
-          <h2 class="section-title">The systems, platforms, and outcomes I deliver.</h2>
-          <p class="section-sub">Your resume calls out project engineering, cloud identity, networking, security, virtualization, business continuity, and automation as your core technical expertise. fileciteturn1file1</p>
-          <div class="expertise-grid">
-            <div class="card">
-              <h3>Cloud and identity</h3>
-              <p>Microsoft 365, Exchange, SharePoint, Teams, Entra ID, Intune, Autopilot, compliance policies, and secure identity controls for modern business environments.</p>
-            </div>
-            <div class="card">
-              <h3>Network and security</h3>
-              <p>SonicWall, Fortinet, Cisco, firewall policy management, VLANs, VPN connectivity, SD WAN, and endpoint protection built for reliable and secure operations.</p>
-            </div>
-            <div class="card">
-              <h3>Virtualization and servers</h3>
-              <p>VMware vSphere, Hyper V, Azure Virtual Machines, Windows Server upgrades, Active Directory, DNS, DHCP, IIS, and core infrastructure troubleshooting.</p>
-            </div>
-            <div class="card">
-              <h3>Business continuity and automation</h3>
-              <p>Datto BCDR, Acronis, PowerShell scripting, RMM optimization, SOP design, and service improvement that moves support teams from reactive to proactive operations.</p>
-            </div>
-          </div>
-        </div>
+      <div class="sg reveal">
+        <div class="sg-ic">&#128187;</div>
+        <div class="sg-t">Virtualization &amp; Infra</div>
+        <div class="tags"><span class="tag">VMware vSphere</span><span class="tag">Hyper-V</span><span class="tag">Azure VMs</span><span class="tag">Active Directory</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">Windows Server 2012-2022</span></div>
       </div>
-    </section>
-
-    <section class="block" id="projects">
-      <div class="wrap">
-        <div class="section-panel reveal">
-          <div class="section-kicker">Selected project experience</div>
-          <h2 class="section-title">Work that proves depth, not just titles.</h2>
-          <p class="section-sub">Your new resume highlights major delivery themes that are ideal for portfolio positioning, including enterprise cloud migration, infrastructure hardening, and secure multi site network deployment. fileciteturn1file1</p>
-          <div class="project-grid">
-            <div class="card">
-              <h3>Enterprise cloud migration</h3>
-              <p>Architected and executed a full Microsoft 365 transition with Conditional Access and tailored Intune deployment policies designed for security, usability, and long term operational stability. fileciteturn1file1</p>
-            </div>
-            <div class="card">
-              <h3>Infrastructure hardening</h3>
-              <p>Built and implemented specialized processes to reduce IoT risk and strengthen endpoint protection using modern security tooling including CrowdStrike and Cylance. fileciteturn1file1</p>
-            </div>
-            <div class="card">
-              <h3>Secure network deployment</h3>
-              <p>Designed and maintained secure VPN tunnels and VLAN tagging for multi site client environments across U.S. and APAC regions, improving connectivity and operational resilience. fileciteturn1file1</p>
-            </div>
-          </div>
-        </div>
+      <div class="sg reveal">
+        <div class="sg-ic">&#9889;</div>
+        <div class="sg-t">Automation &amp; BCDR</div>
+        <div class="tags"><span class="tag">PowerShell</span><span class="tag">Datto BCDR</span><span class="tag">Datto RMM</span><span class="tag">Acronis</span><span class="tag">Autotask PSA</span><span class="tag">ConnectWise</span><span class="tag">ServiceNow</span><span class="tag">IT Glue</span></div>
       </div>
-    </section>
-
-    <section class="block" id="experience">
-      <div class="wrap">
-        <div class="section-panel reveal">
-          <div class="section-kicker">Experience</div>
-          <h2 class="section-title">A track record built through escalation, delivery, and trust.</h2>
-          <p class="section-sub">I updated the experience timeline from your new resume so the portfolio reflects your more recent roles and responsibilities accurately. fileciteturn1file1turn1file0</p>
-          <div class="timeline">
-            <article class="job">
-              <div class="job-top">
-                <div>
-                  <h3>Level 2 and 3 Engineer, Escalation</h3>
-                  <div class="company">Logic Speak</div>
-                </div>
-                <div class="period">October 2025 to March 2026</div>
-              </div>
-              <ul>
-                <li>Owned high priority incidents and complex outages as the final technical escalation point, helping reduce downtime and avoid outside consultant costs.</li>
-                <li>Architected resilient server environments, high availability virtualization, and disaster recovery planning designed for data integrity and dependable recovery outcomes.</li>
-                <li>Used advanced PowerShell scripting and RMM optimization to automate proactive maintenance and strengthen forensic auditing.</li>
-                <li>Mentored Tier 1 and Tier 2 engineers, standardized SOPs, and supported higher first touch resolution and stronger service quality.</li>
-                <li>Oversaw Entra ID, MFA, Conditional Access, and infrastructure auditing to support modern compliance and cyber insurance expectations.</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-top">
-                <div>
-                  <h3>IT Engineer, Escalation</h3>
-                  <div class="company">Kloud9 IT MSP</div>
-                </div>
-                <div class="period">October 2024 to October 2025</div>
-              </div>
-              <ul>
-                <li>Provided advanced remote and on site support for Microsoft business applications and desktop operating systems across multiple client environments.</li>
-                <li>Managed server and network troubleshooting across Active Directory, DNS, DHCP, IIS, WAN, and LAN connectivity.</li>
-                <li>Deployed secure remote access solutions using VPN, Terminal Services, and Citrix.</li>
-                <li>Maintained detailed documentation within IT Glue and ConnectWise to streamline troubleshooting and incident management.</li>
-                <li>Configured and deployed new hardware based on standardized company builds and best practices.</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-top">
-                <div>
-                  <h3>Cloud Support Engineer, Level 3 and Projects</h3>
-                  <div class="company">SolarWinds Remote</div>
-                </div>
-                <div class="period">November 2023 to June 2025</div>
-              </div>
-              <ul>
-                <li>Led high priority escalations and API troubleshooting for global cloud product deployments.</li>
-                <li>Worked closely with development teams to resolve complex architectural bugs and improve technical outcomes.</li>
-                <li>Documented technical findings and resolutions in KCS format for enterprise knowledge quality. </li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-top">
-                <div>
-                  <h3>Senior Global Service Desk Engineer, Level 2 and 3</h3>
-                  <div class="company">Accenture Remote</div>
-                </div>
-                <div class="period">June 2021 to July 2023</div>
-              </div>
-              <ul>
-                <li>Served as the final escalation point for Office 365, VPN, and Active Directory incidents and earned recognition for fast resolution.</li>
-                <li>Used Autotask PSA and ServiceNow to support service delivery improvements and mentor junior engineers.</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-top">
-                <div>
-                  <h3>Service Desk Engineer, Level 1 to 3</h3>
-                  <div class="company">C3 Everise Remote</div>
-                </div>
-                <div class="period">2015 to 2021</div>
-              </div>
-              <ul>
-                <li>Managed full tier support for U.S. based SMB clients and led root cause analysis for recurring networking and virtual machine issues.</li>
-                <li>Created SOPs that improved resolution metrics and service level agreement performance.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="contact">
-      <div class="wrap">
-        <div class="section-panel reveal">
-          <div class="section-kicker">Contact</div>
-          <h2 class="section-title">Bring me in when the infrastructure matters.</h2>
-          <p class="section-sub">You asked for the availability to be updated for flexible time zone coverage, so the portfolio now presents you as flexible across time zones instead of locking to one shift window. Your contact section is positioned for hiring managers, MSP leaders, and business owners who need a strong technical operator. fileciteturn1file0turn1file1</p>
-          <div class="contact-grid">
-            <div class="card contact-card">
-              <div class="contact-icon">✉</div>
-              <div>
-                <p class="contact-label">Email</p>
-                <p class="contact-value"><a href="mailto:nino.mabilangan@gmail.com">nino.mabilangan@gmail.com</a></p>
-              </div>
-            </div>
-            <div class="card contact-card">
-              <div class="contact-icon">☎</div>
-              <div>
-                <p class="contact-label">Phone and WhatsApp</p>
-                <p class="contact-value"><a href="tel:+639509199658">+63 950 919 9658</a></p>
-              </div>
-            </div>
-            <div class="card contact-card">
-              <div class="contact-icon">⌂</div>
-              <div>
-                <p class="contact-label">Location</p>
-                <p class="contact-value">Batangas, Philippines, remote ready</p>
-              </div>
-            </div>
-            <div class="card contact-card">
-              <div class="contact-icon">◉</div>
-              <div>
-                <p class="contact-label">Availability</p>
-                <p class="contact-value">Flexible across time zones for remote roles, projects, escalation coverage, and business critical support.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap foot">
-      <div>© 2026 Niño Wennie Mabilangan</div>
-      <div>GitHub Pages ready single file portfolio</div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    (() => {
-      const canvas = document.getElementById('quantumField');
-      const ctx = canvas.getContext('2d', { alpha: true });
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
-      let vw = 0;
-      let vh = 0;
-      let raf = 0;
-      let last = 0;
-      let time = 0;
-      let running = true;
-      let particles = [];
-      let orbitals = [];
-      let cubes = [];
-      let streams = [];
-      let mouse = { x: null, y: null };
+<section id="experience">
+  <div class="sec-inner">
+    <div class="sec-label reveal">// experience</div>
+    <h2 class="sec-title reveal">Where I built my craft.</h2>
+    <p class="sec-sub reveal">From first-touch support to owning P1 incidents solo every role added a new layer of technical depth.</p>
+    <div class="tl">
 
-      function resize() {
-        vw = window.innerWidth;
-        vh = window.innerHeight;
-        canvas.width = Math.floor(vw * DPR);
-        canvas.height = Math.floor(vh * DPR);
-        canvas.style.width = vw + 'px';
-        canvas.style.height = vh + 'px';
-        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-        buildScene();
-      }
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-co">LOGIC SPEAK</div>
+        <div class="tl-role">Level 2/3 Engineer / Escalation</div>
+        <div class="tl-period">October 2025 to March 2026</div>
+        <ul class="tl-items">
+          <li>Serves as the ultimate technical escalation point, taking ownership of high-priority P1 and P2 incidents and complex outages to minimize downtime</li>
+          <li>Architecting resilient server environments, high-availability virtualization using Hyper-V and Azure, and robust disaster recovery plans to ensure 100% data integrity</li>
+          <li>Utilizes advanced PowerShell scripting and RMM optimization to automate proactive maintenance and forensic auditing, shifting the team from reactive to proactive</li>
+          <li>Acts as a technical mentor for Tier 1 and Tier 2 teams, standardizing SOPs and conducting peer reviews to improve first-touch resolution rate</li>
+          <li>Oversees advanced security deployments covering Entra ID, MFA, and Conditional Access, ensuring all managed clients meet modern compliance and cyber-insurance standards</li>
+        </ul>
+      </div>
 
-      function buildScene() {
-        const mobile = vw < 768;
-        const particleCount = reduceMotion ? 22 : (mobile ? 42 : 72);
-        const orbitalCount = reduceMotion ? 2 : (mobile ? 4 : 7);
-        const cubeCount = reduceMotion ? 3 : (mobile ? 5 : 8);
-        const streamCount = reduceMotion ? 4 : (mobile ? 5 : 7);
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-co">KLOUD9 IT (MSP)</div>
+        <div class="tl-role">IT Engineer / Escalation</div>
+        <div class="tl-period">October 2024 to October 2025</div>
+        <ul class="tl-items">
+          <li>Provided advanced remote and on-site technical support for Microsoft core business applications across multiple client environments</li>
+          <li>Managed server and network-level troubleshooting covering Active Directory, DNS, DHCP, IIS, and WAN/LAN connectivity</li>
+          <li>Deployed and supported secure remote access solutions using VPNs, Terminal Services, and Citrix</li>
+          <li>Maintained comprehensive system documentation within IT Glue and ConnectWise to streamline team troubleshooting</li>
+          <li>Configured and deployed new computer hardware aligned with standardized company configurations</li>
+        </ul>
+      </div>
 
-        particles = Array.from({ length: particleCount }, () => ({
-          x: Math.random() * vw,
-          y: Math.random() * vh,
-          z: 0.4 + Math.random() * 1.2,
-          vx: (Math.random() - 0.5) * 0.26,
-          vy: (Math.random() - 0.5) * 0.26,
-          r: 1.1 + Math.random() * 2.5,
-          glow: 0.45 + Math.random() * 0.9
-        }));
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-co">SOLARWINDS</div>
+        <div class="tl-role">Cloud Support Engineer Level 3 / Projects</div>
+        <div class="tl-period">November 2023 to June 2025</div>
+        <ul class="tl-items">
+          <li>Led high-priority technical escalations and API troubleshooting for global cloud product deployments</li>
+          <li>Collaborated with internal development teams to resolve complex architectural bugs and documented findings in KCS format</li>
+        </ul>
+      </div>
 
-        orbitals = Array.from({ length: orbitalCount }, (_, i) => ({
-          cx: vw * (0.56 + (Math.random() - 0.5) * 0.34),
-          cy: vh * (0.38 + (Math.random() - 0.5) * 0.24),
-          rx: mobile ? 48 + Math.random() * 90 : 80 + Math.random() * 170,
-          ry: mobile ? 20 + Math.random() * 42 : 26 + Math.random() * 95,
-          rot: Math.random() * Math.PI,
-          speed: (0.00018 + Math.random() * 0.00045) * (i % 2 ? 1 : -1),
-          alpha: 0.08 + Math.random() * 0.08,
-          electronAngle: Math.random() * Math.PI * 2,
-          electronSpeed: 0.004 + Math.random() * 0.006
-        }));
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-co">ACCENTURE</div>
+        <div class="tl-role">Senior Global Service Desk Engineer L2/L3</div>
+        <div class="tl-period">June 2021 to July 2023</div>
+        <ul class="tl-items">
+          <li>Served as the final escalation point for Office 365, VPN, and Active Directory incidents, receiving executive-level recognition for resolution speed</li>
+          <li>Utilized Autotask PSA and ServiceNow to lead service delivery improvements and mentor junior engineers</li>
+        </ul>
+      </div>
 
-        cubes = Array.from({ length: cubeCount }, () => ({
-          x: Math.random() * vw,
-          y: Math.random() * vh,
-          size: 8 + Math.random() * 14,
-          rot: Math.random() * Math.PI,
-          speed: (Math.random() - 0.5) * 0.01,
-          alpha: 0.08 + Math.random() * 0.08
-        }));
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-co">C3 EVERISE</div>
+        <div class="tl-role">Service Desk Engineer L1 to L3</div>
+        <div class="tl-period">2015 to 2021</div>
+        <ul class="tl-items">
+          <li>Managed full-tier support for U.S.-based SMB clients, spearheading root cause analysis for recurring networking and VM issues</li>
+          <li>Created ticket-handling SOPs that significantly improved resolution metrics and SLA compliance</li>
+        </ul>
+      </div>
 
-        streams = Array.from({ length: streamCount }, () => ({
-          x: Math.random() * vw,
-          y: Math.random() * vh,
-          len: mobile ? 110 + Math.random() * 140 : 180 + Math.random() * 260,
-          alpha: 0.03 + Math.random() * 0.045,
-          speed: 0.5 + Math.random() * 1.1,
-          offset: Math.random() * Math.PI * 2
-        }));
-      }
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-co">FULL TIME TRAINING IN MALABON</div>
+        <div class="tl-role">IT Supervisor</div>
+        <div class="tl-period">2013 to 2015</div>
+        <ul class="tl-items">
+          <li>Oversaw IT services and led support for regional online conferences using Zoom and Skype</li>
+          <li>Managed a small team and coordinated hardware and software rollout for 20+ staff</li>
+          <li>Built a registration system capable of handling 3,500 to 4,000 registrants</li>
+        </ul>
+      </div>
 
-      function drawBase() {
-        ctx.clearRect(0, 0, vw, vh);
+    </div>
+  </div>
+</section>
 
-        const bg = ctx.createLinearGradient(0, 0, 0, vh);
-        bg.addColorStop(0, 'rgba(5, 13, 28, 0.12)');
-        bg.addColorStop(1, 'rgba(3, 8, 20, 0.3)');
-        ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, vw, vh);
+<section id="projects">
+  <div class="sec-inner">
+    <div class="sec-label reveal">// selected projects</div>
+    <h2 class="sec-title reveal">What I've actually built.</h2>
+    <p class="sec-sub reveal">Real deployments across real client environments not lab work.</p>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-ic">&#9729;&#65039;</div>
+        <div class="proj-title">Enterprise Cloud Migration</div>
+        <div class="proj-desc">Architected and executed a full tenant transition to Microsoft 365, including Azure Conditional Access policies and custom Intune deployment configurations for a multi-site client.</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-ic">&#128274;</div>
+        <div class="proj-title">Infrastructure Hardening</div>
+        <div class="proj-desc">Built and implemented specialized processes to mitigate IoT risks and prevent endpoint breaches across managed client environments using CrowdStrike and Cylance.</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-ic">&#127760;</div>
+        <div class="proj-title">Multi-Site Network Deployment</div>
+        <div class="proj-desc">Designed and maintained secure VPN tunnels and VLAN tagging for multi-site client environments across U.S. and APAC regions with zero unplanned downtime.</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-ic">&#9889;</div>
+        <div class="proj-title">Proactive Automation Framework</div>
+        <div class="proj-desc">Shifted an MSP team from reactive firefighting to a proactive model using advanced PowerShell scripting and RMM optimizations that reduced manual overhead significantly.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        const coreX = vw * 0.68;
-        const coreY = vh * 0.34;
-        const pulseRadius = 120 + Math.sin(time * 0.0012) * 14;
-        const pulse = ctx.createRadialGradient(coreX, coreY, 0, coreX, coreY, pulseRadius);
-        pulse.addColorStop(0, 'rgba(96, 230, 255, 0.13)');
-        pulse.addColorStop(0.38, 'rgba(44, 168, 255, 0.07)');
-        pulse.addColorStop(1, 'rgba(44, 168, 255, 0)');
-        ctx.fillStyle = pulse;
-        ctx.beginPath();
-        ctx.arc(coreX, coreY, pulseRadius, 0, Math.PI * 2);
-        ctx.fill();
-      }
+<section id="contact">
+  <div class="sec-inner">
+    <div class="sec-label reveal">// contact</div>
+    <h2 class="sec-title reveal">Let's work together.</h2>
+    <p class="sec-sub reveal">Open to full-time remote roles, project-based contracts, and MSP partnerships. Flexible across all time zones.</p>
+    <div class="cbox reveal">
+      <div class="avail"><div class="avail-dot"></div>Available for new opportunities</div>
+      <p style="color:#4a6585;font-size:clamp(.9rem,1.3vw,1rem);line-height:1.85;max-width:500px">Need someone to own your infrastructure, lead a cloud migration, or be your go-to escalation engineer? Reach out. I respond fast regardless of your time zone.</p>
+      <div class="cgrid">
+        <a href="mailto:nino.mabilangan@gmail.com" class="ci"><div class="ci-ic">&#9993;&#65039;</div><div><div class="ci-l">Email</div><div class="ci-v">nino.mabilangan@gmail.com</div></div></a>
+        <a href="tel:+639509199658" class="ci"><div class="ci-ic">&#128241;</div><div><div class="ci-l">Phone / WhatsApp</div><div class="ci-v">+63 950 919 9658</div></div></a>
+        <div class="ci"><div class="ci-ic">&#128205;</div><div><div class="ci-l">Location</div><div class="ci-v">Batangas, Philippines</div></div></div>
+        <div class="ci"><div class="ci-ic">&#128336;</div><div><div class="ci-l">Availability</div><div class="ci-v">Flexible all time zones</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      function drawStreams() {
-        for (const s of streams) {
-          const drift = Math.sin(time * 0.001 * s.speed + s.offset) * 18;
-          ctx.strokeStyle = `rgba(95, 205, 255, ${s.alpha})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(s.x + drift, s.y - s.len * 0.5);
-          ctx.lineTo(s.x - drift, s.y + s.len * 0.5);
-          ctx.stroke();
-        }
-      }
+<footer>
+  <p>&copy; 2026 Niño Mabilangan</p>
+  <p style="font-family:'DM Mono',monospace;font-size:10px;color:#1e3a5a">Batangas, PH &nbsp;|&nbsp; Remote</p>
+</footer>
 
-      function drawOrbitals() {
-        for (const o of orbitals) {
-          const rot = o.rot + time * o.speed;
-          ctx.save();
-          ctx.translate(o.cx, o.cy);
-          ctx.rotate(rot);
-          ctx.strokeStyle = `rgba(72, 180, 255, ${o.alpha})`;
-          ctx.lineWidth = 1.15;
-          ctx.beginPath();
-          ctx.ellipse(0, 0, o.rx, o.ry, 0, 0, Math.PI * 2);
-          ctx.stroke();
-
-          const ex = Math.cos(o.electronAngle + time * o.electronSpeed) * o.rx;
-          const ey = Math.sin(o.electronAngle + time * o.electronSpeed) * o.ry;
-          const eg = ctx.createRadialGradient(ex, ey, 0, ex, ey, 12);
-          eg.addColorStop(0, 'rgba(131, 239, 255, 0.95)');
-          eg.addColorStop(0.35, 'rgba(44, 168, 255, 0.38)');
-          eg.addColorStop(1, 'rgba(44, 168, 255, 0)');
-          ctx.fillStyle = eg;
-          ctx.beginPath();
-          ctx.arc(ex, ey, 12, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.restore();
-        }
-      }
-
-      function updateParticles() {
-        for (const p of particles) {
-          p.x += p.vx * p.z;
-          p.y += p.vy * p.z;
-          if (mouse.x !== null && mouse.y !== null) {
-            const dx = mouse.x - p.x;
-            const dy = mouse.y - p.y;
-            const d = Math.hypot(dx, dy);
-            if (d < 170) {
-              const force = (170 - d) / 1700;
-              p.x -= dx * force * 0.04;
-              p.y -= dy * force * 0.04;
-            }
-          }
-          if (p.x < -30) p.x = vw + 30;
-          if (p.x > vw + 30) p.x = -30;
-          if (p.y < -30) p.y = vh + 30;
-          if (p.y > vh + 30) p.y = -30;
-        }
-      }
-
-      function drawNetwork() {
-        const linkDist = vw < 768 ? 110 : 135;
-        for (let i = 0; i < particles.length; i++) {
-          const a = particles[i];
-          for (let j = i + 1; j < particles.length; j++) {
-            const b = particles[j];
-            const dx = a.x - b.x;
-            const dy = a.y - b.y;
-            const d = Math.hypot(dx, dy);
-            if (d < linkDist) {
-              const alpha = (1 - d / linkDist) * 0.16;
-              ctx.strokeStyle = `rgba(58, 158, 255, ${alpha})`;
-              ctx.lineWidth = 1;
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.stroke();
-            }
-          }
-        }
-
-        for (const p of particles) {
-          const g = 7 + p.r * 4.8;
-          const rg = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, g);
-          rg.addColorStop(0, `rgba(140, 241, 255, ${0.34 * p.glow})`);
-          rg.addColorStop(0.35, `rgba(46, 170, 255, ${0.16 * p.glow})`);
-          rg.addColorStop(1, 'rgba(46, 170, 255, 0)');
-          ctx.fillStyle = rg;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, g, 0, Math.PI * 2);
-          ctx.fill();
-
-          ctx.fillStyle = 'rgba(132, 239, 255, 0.92)';
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      function drawCubes() {
-        for (const c of cubes) {
-          c.rot += c.speed;
-          ctx.save();
-          ctx.translate(c.x, c.y);
-          ctx.rotate(c.rot);
-          ctx.strokeStyle = `rgba(74, 184, 255, ${c.alpha})`;
-          ctx.lineWidth = 1;
-          ctx.strokeRect(-c.size * 0.5, -c.size * 0.5, c.size, c.size);
-          ctx.restore();
-        }
-      }
-
-      function frame(now = 0) {
-        if (!running) return;
-        const interval = reduceMotion ? 120 : 33;
-        if (now - last >= interval) {
-          time = now;
-          drawBase();
-          drawStreams();
-          drawOrbitals();
-          updateParticles();
-          drawNetwork();
-          drawCubes();
-          last = now;
-        }
-        raf = requestAnimationFrame(frame);
-      }
-
-      window.addEventListener('resize', resize, { passive: true });
-      window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      }, { passive: true });
-      window.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-      }, { passive: true });
-      document.addEventListener('visibilitychange', () => {
-        running = !document.hidden;
-        cancelAnimationFrame(raf);
-        if (running) {
-          last = 0;
-          frame();
-        }
-      });
-
-      resize();
-      frame();
-    })();
-
-    (() => {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('show');
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-    })();
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var canvas=document.getElementById('qc');
+  var renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  renderer.setClearColor(0x000000,0);
+  var scene=new THREE.Scene();
+  var camera=new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,0.1,1000);
+  camera.position.set(0,0,28);
+  var CB=new THREE.Color(0x0ea5e9),CM=new THREE.Color(0x0369a1),CD=new THREE.Color(0x082f49),CQ=new THREE.Color(0x38bdf8);
+  var N=110,np=[],nv=[],pa=new Float32Array(N*3),ca=new Float32Array(N*3),sa=new Float32Array(N);
+  for(var i=0;i<N;i++){var x=(Math.random()-.5)*60,y=(Math.random()-.5)*50,z=(Math.random()-.5)*30;pa[i*3]=x;pa[i*3+1]=y;pa[i*3+2]=z;np.push(new THREE.Vector3(x,y,z));nv.push(new THREE.Vector3((Math.random()-.5)*.007,(Math.random()-.5)*.007,(Math.random()-.5)*.004));var big=Math.random()<.15;sa[i]=big?2.5+Math.random()*2:.6+Math.random()*1.2;var c=big?CB:(Math.random()<.5?CM:CD);ca[i*3]=c.r;ca[i*3+1]=c.g;ca[i*3+2]=c.b}
+  var ng=new THREE.BufferGeometry();ng.setAttribute('position',new THREE.BufferAttribute(pa,3));ng.setAttribute('color',new THREE.BufferAttribute(ca,3));ng.setAttribute('size',new THREE.BufferAttribute(sa,1));
+  var nm=new THREE.ShaderMaterial({vertexColors:true,transparent:true,depthWrite:false,vertexShader:'attribute float size;varying vec3 vColor;void main(){vColor=color;vec4 mv=modelViewMatrix*vec4(position,1.0);gl_PointSize=size*(280.0/-mv.z);gl_Position=projectionMatrix*mv;}',fragmentShader:'varying vec3 vColor;void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(.5,.1,d);gl_FragColor=vec4(vColor,a*.9);}'});
+  scene.add(new THREE.Points(ng,nm));
+  var MD=10,ep=[],ec_arr=[];
+  for(var i=0;i<N;i++)for(var j=i+1;j<N;j++){if(np[i].distanceTo(np[j])<MD){ep.push(np[i].x,np[i].y,np[i].z,np[j].x,np[j].y,np[j].z);ec_arr.push(CM.r,CM.g,CM.b,CM.r,CM.g,CM.b)}}
+  var eg=new THREE.BufferGeometry();eg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(ep),3));eg.setAttribute('color',new THREE.BufferAttribute(new Float32Array(ec_arr),3));
+  var em=new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.14,depthWrite:false});
+  scene.add(new THREE.LineSegments(eg,em));
+  var orbs=[];
+  for(var o=0;o<7;o++){var r=3+Math.random()*6,tilt=Math.random()*Math.PI,tiltY=Math.random()*Math.PI*2,spd=(.2+Math.random()*.5)*(Math.random()<.5?1:-1),cx=(Math.random()-.5)*22,cy=(Math.random()-.5)*16,cz=(Math.random()-.5)*10-5;var ring=new THREE.Mesh(new THREE.TorusGeometry(r,.035,6,80),new THREE.MeshBasicMaterial({color:CM,transparent:true,opacity:.2,depthWrite:false}));ring.position.set(cx,cy,cz);ring.rotation.x=tilt;ring.rotation.y=tiltY;scene.add(ring);var el=new THREE.Mesh(new THREE.SphereGeometry(.2,8,8),new THREE.MeshBasicMaterial({color:CQ}));scene.add(el);var hl=new THREE.Mesh(new THREE.SphereGeometry(.42,8,8),new THREE.MeshBasicMaterial({color:CB,transparent:true,opacity:.13,depthWrite:false}));scene.add(hl);orbs.push({ring:ring,el:el,hl:hl,r:r,tilt:tilt,cx:cx,cy:cy,cz:cz,spd:spd,ang:Math.random()*Math.PI*2})}
+  var cubes=[];
+  for(var c=0;c<14;c++){var s=.15+Math.random()*.45,mesh=new THREE.Mesh(new THREE.BoxGeometry(s,s,s),new THREE.MeshBasicMaterial({color:Math.random()<.5?CM:CD,wireframe:true,transparent:true,opacity:.25,depthWrite:false}));mesh.position.set((Math.random()-.5)*55,(Math.random()-.5)*45,(Math.random()-.5)*22-5);scene.add(mesh);cubes.push({mesh:mesh,rx:(Math.random()-.5)*.012,ry:(Math.random()-.5)*.018,vy:(Math.random()-.5)*.005})}
+  var streams=[];
+  for(var s=0;s<10;s++){var sx=(Math.random()-.5)*55,sz=(Math.random()-.5)*22,sh=12+Math.random()*25,spts=[];for(var p=0;p<24;p++)spts.push(sx,-sh/2+(sh/24)*p,sz);var stg=new THREE.BufferGeometry();stg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(spts),3));var stm=new THREE.LineBasicMaterial({color:CB,transparent:true,opacity:.06,depthWrite:false});scene.add(new THREE.Line(stg,stm));streams.push({mat:stm,spd:.3+Math.random()*.5,off:Math.random()*10})}
+  var core=new THREE.Mesh(new THREE.SphereGeometry(1.2,32,32),new THREE.MeshBasicMaterial({color:CB,transparent:true,opacity:.07,depthWrite:false}));core.position.set(0,0,-8);scene.add(core);
+  var cr1=new THREE.Mesh(new THREE.TorusGeometry(2.2,.05,6,80),new THREE.MeshBasicMaterial({color:CB,transparent:true,opacity:.16,depthWrite:false}));cr1.position.set(0,0,-8);scene.add(cr1);
+  var cr2=new THREE.Mesh(new THREE.TorusGeometry(3.2,.03,6,80),new THREE.MeshBasicMaterial({color:CM,transparent:true,opacity:.1,depthWrite:false}));cr2.position.set(0,0,-8);cr2.rotation.y=Math.PI/3;scene.add(cr2);
+  var mx=0,my=0;document.addEventListener('mousemove',function(e){mx=(e.clientX/window.innerWidth-.5)*2;my=(e.clientY/window.innerHeight-.5)*2});
+  window.addEventListener('resize',function(){camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight)});
+  var clock=new THREE.Clock();
+  function animate(){requestAnimationFrame(animate);var t=clock.getElapsedTime();var pa2=ng.attributes.position.array;for(var i=0;i<N;i++){np[i].add(nv[i]);if(Math.abs(np[i].x)>30)nv[i].x*=-1;if(Math.abs(np[i].y)>25)nv[i].y*=-1;if(Math.abs(np[i].z)>15)nv[i].z*=-1;pa2[i*3]=np[i].x;pa2[i*3+1]=np[i].y;pa2[i*3+2]=np[i].z}ng.attributes.position.needsUpdate=true;
+  var epa=eg.attributes.position.array,eca=eg.attributes.color.array,ei=0,eci2=0;for(var i=0;i<N&&ei<epa.length-5;i++)for(var j=i+1;j<N&&ei<epa.length-5;j++){var d=np[i].distanceTo(np[j]);if(d<MD){var a=1-d/MD;epa[ei++]=np[i].x;epa[ei++]=np[i].y;epa[ei++]=np[i].z;epa[ei++]=np[j].x;epa[ei++]=np[j].y;epa[ei++]=np[j].z;var col=a>.6?CB:(a>.3?CM:CD);eca[eci2++]=col.r;eca[eci2++]=col.g;eca[eci2++]=col.b;eca[eci2++]=col.r;eca[eci2++]=col.g;eca[eci2++]=col.b}}eg.attributes.position.needsUpdate=true;eg.attributes.color.needsUpdate=true;
+  for(var o=0;o<orbs.length;o++){orbs[o].ang+=orbs[o].spd*.012;var ex=orbs[o].cx+orbs[o].r*Math.cos(orbs[o].ang),ey=orbs[o].cy+orbs[o].r*Math.sin(orbs[o].ang)*Math.cos(orbs[o].tilt),ez=orbs[o].cz+orbs[o].r*Math.sin(orbs[o].ang)*Math.sin(orbs[o].tilt);orbs[o].el.position.set(ex,ey,ez);orbs[o].hl.position.set(ex,ey,ez);orbs[o].hl.material.opacity=.07+.11*Math.abs(Math.sin(t*1.5+orbs[o].ang))}
+  core.material.opacity=.04+.06*Math.sin(t*.8);cr1.rotation.z=t*.3;cr2.rotation.x=t*.2;cr2.rotation.z=t*.15;
+  for(var s=0;s<streams.length;s++)streams[s].mat.opacity=.03+.06*Math.abs(Math.sin(t*streams[s].spd+streams[s].off));
+  for(var c=0;c<cubes.length;c++){cubes[c].mesh.rotation.x+=cubes[c].rx;cubes[c].mesh.rotation.y+=cubes[c].ry;cubes[c].mesh.position.y+=cubes[c].vy;if(cubes[c].mesh.position.y>26)cubes[c].mesh.position.y=-26;if(cubes[c].mesh.position.y<-26)cubes[c].mesh.position.y=26}
+  scene.rotation.y=mx*.04+Math.sin(t*.04)*.025;scene.rotation.x=my*.025+Math.sin(t*.06)*.015;renderer.render(scene,camera)}
+  animate();
+})();
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+</script>
 </body>
 </html>
